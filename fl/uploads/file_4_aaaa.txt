@@ -1,5 +1,0 @@
-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
-
-curl https://api.openai.com/v1/models \
-  -H 'Authorization: Bearer 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' \
-  -H 'OpenAI-Organization: YOUR_ORG_ID'
