@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nationality = htmlspecialchars($_POST["nationality"]);
         
         // Define the file path to store the data
-        $filePath = '/var/www/html/new/user_data.txt';
+        $filePath = '/main/new/user_data.txt';
 
         // Format data to write to file
         $data = "Name: $name\nAddress: $address\nPhone: $phone\nSex: $sex\nNationality: $nationality\n\n";
