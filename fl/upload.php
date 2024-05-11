@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             echo "<script>";
             echo "var serialNumber = " . $serialNumber . ";";
             echo "alert('File uploaded successfully. Serial number: ' + serialNumber);";
-            echo "setTimeout(function() { window.location.href = 'http://192.168.209.128'; }, 3000);"; // Redirect after 3 seconds
+            echo "setTimeout(function() { window.location.href = 'https://lcashish1.github.io'; }, 3000);"; // Redirect after 3 seconds
             echo "</script>";
         } else {
             echo "Error uploading file.";
