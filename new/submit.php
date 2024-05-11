@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 alert("Your data has been added successfully.");
 
                 // Redirect to the specified URL
-                window.location.href = "http://192.168.209.128";
+                window.location.href = "https://lcashish1.github.io";
             }, 1000); // Simulated delay of 1 second (adjust as needed)
           </script>';
 
