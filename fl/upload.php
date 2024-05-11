@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         }
 
         // Specify upload directory
-        $uploadDir = "uploads/";
+        $uploadDir = "http://192.168.209.128/fl/uploads/";
         // Ensure the upload directory exists and is writable
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0755, true);
