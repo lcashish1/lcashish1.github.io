@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCNA Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+	<div id="heading">
+		<h1> Welcome to CCNA Quiz Page </h1> 
+	</div> 
+
+        <!-- Start Screen -->
+    <div id="start-container">
+        <h1>Welcome to the CCNA Quiz!</h1>
+        <button id="start-button">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-container" class="hidden">
+        <h2 id="timer">Time left: 15s</h2>
+        <div id="question-container">
+            <p id="question"></p>
+            <div id="options"></div>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="result-container" class="hidden">
+    <h1>Quiz Results</h1>
+    <p id="score"></p>
+    <div id="result-details"></div>
+    <button id="restart-button">Restart Quiz</button>
+</div>
+
+<div id="copyright"> 
+	<p>purushottam & Swopnil &copy; 2025 
+</div>
+
+    <script src="quiz_app.js"></script>
+</body>
+</html>
