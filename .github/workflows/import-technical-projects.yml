@@ -1,0 +1,68 @@
+name: Import technical project files
+
+# A one-time, repeatable import of the public lab files from the original repo.
+# The source repository is never modified or deleted.
+on:
+  push:
+    paths:
+      - '.github/workflows/import-technical-projects.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-projects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website repository
+        uses: actions/checkout@v4
+        with:
+          path: website
+          persist-credentials: true
+
+      - name: Check out original public project repository
+        uses: actions/checkout@v4
+        with:
+          repository: lcashish1/purushottam-lamichhane
+          ref: main
+          path: original
+          persist-credentials: false
+
+      - name: Copy all four projects with original supporting files
+        shell: bash
+        run: |
+          set -euo pipefail
+          declare -A map=(
+            ["Active Directory Lab"]="active-directory"
+            ["Home Network Setup"]="office-network"
+            ["Microsoft-Sentinel-Attack-Map-Lab"]="sentinel-attack-map"
+            ["Zero Trust Azure Security with Live Threat Detection & Automated Response"]="zero-trust-azure"
+          )
+          for original_name in "${!map[@]}"; do
+            destination="website/projects/${map[$original_name]}"
+            mkdir -p "$destination"
+            cp -a "original/$original_name/." "$destination/"
+            echo "Copied $original_name -> $destination"
+            # Verify every original file, including binary screenshots, transferred exactly.
+            while IFS= read -r -d '' file; do
+              relative="${file#original/$original_name/}"
+              cmp "$file" "$destination/$relative"
+            done < <(find "original/$original_name" -type f -print0)
+          done
+          echo "All source files copied and byte-compared successfully."
+
+      - name: Save imported files to portfolio
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd website
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- projects/active-directory/ projects/office-network/ projects/sentinel-attack-map/ projects/zero-trust-azure/
+          if git diff --cached --quiet; then
+            echo "No updates required; destination is already current."
+          else
+            git commit -m "Import complete technical labs and supporting project files"
+            git push origin HEAD:main
+          fi
