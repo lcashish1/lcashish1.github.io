@@ -87,7 +87,7 @@ Connected data sources:
 *	Defender for Cloud alerts
 📊 All VM logs are ingested using Azure Monitor Agent (AMA) and Data Collection Rules (DCRs).
 ![](Project%20git/sentinal.png)
-![](Project%20git/Sentinel-log.png)
+![](Project%20git/logs-and-workplace.png)
 ________________________________________
 ## 🧪 Attack Simulation
 SSH Brute-Force Test
@@ -113,9 +113,9 @@ Syslog
 Outcome
 *	Sentinel incident is automatically created
 *	Email alert is sent to SOC analyst
-![](Project%20git/dectection-rule.png)
-![](Project%20git/dectection-rule2.png)
-![](Project%20git/dectection-rule3.png)
+![](Project%20git/detection-rule.png)
+![](Project%20git/detection-rule2.png)
+
 ________________________________________
 ## 🤖 PART 2: Automated Response (SOAR)
 Logic App Playbook
@@ -131,7 +131,7 @@ Result
 *	Attacker IP is immediately blocked at the network layer
 *	Prevents further brute-force attempts
 
-![](Project%20git/Dectection-rule4.png)
+![](Project%20git/dectection-rule4.png)
 ![](Project%20git/Dectection-rule5.png)
 ________________________________________
 ## 🔁 MITRE ATT&CK Mapping
