@@ -1,18 +1,16 @@
-# AZURE SENTINEL HONEYPOT SOC LAB
---------
+# Microsoft Sentinel Honeypot and Attack Map Lab
 
-## OVERVIEW
---------
-This project demonstrates a hands-on Security Operations Center (SOC) lab built using Microsoft Azure and Microsoft Sentinel.
+## Overview
+
+This lab uses Microsoft Azure and Microsoft Sentinel to collect and review failed Windows sign-in events.
 A Windows virtual machine is deployed as a honeypot to attract failed login attempts. Security logs are collected, enriched
 with geolocation data, and visualized using a live attack map in Microsoft Sentinel.
 
-This lab is based on practical learning and inspired by Josh Madakor’s
-Cyber Home Lab Catch Attackers! Free, Easy, and REAL (Microsoft Sentinel 2025).
+I used Josh Madakor's Microsoft Sentinel home-lab tutorial as a reference while building and documenting the environment.
 
 
-# ARCHITECTURE
-------------
+## Lab architecture
+
 - Azure Subscription
 - Resource Group
 - Windows Virtual Machine (Honeypot)
@@ -25,8 +23,8 @@ Cyber Home Lab Catch Attackers! Free, Easy, and REAL (Microsoft Sentinel 2025).
 - Sentinel Workbooks (Attack Map)
 
 
-# TOOLS & TECHNOLOGIES
--------------------
+## Tools
+
 - Microsoft Azure Portal
 - Microsoft Sentinel
 - Log Analytics Workspace
@@ -37,11 +35,11 @@ Cyber Home Lab Catch Attackers! Free, Easy, and REAL (Microsoft Sentinel 2025).
 - Sentinel Workbooks
 
 
-# LAB IMPLEMENTATION STEPS
-------------------------
+## Implementation
+
 1. Created an Azure account and logged into the Azure portal. 
 
-📸 **Screenshot:** Azure Portal Dashboard  
+**Screenshot:** Azure Portal Dashboard  
 
 ![Azure Portal Dashboard](Project%20Git/01-azure-portal-dashboard.png)
 
@@ -50,7 +48,7 @@ Cyber Home Lab Catch Attackers! Free, Easy, and REAL (Microsoft Sentinel 2025).
    - Virtual Network
    - Windows Virtual Machine  
 
-📸 **Screenshot:** Azure Resources Created  
+**Screenshot:** Azure Resources Created  
 
 ![Azure Resources Created](Project%20Git/02-azure-resources-created.png)
 ![Azure Resources Created](Project%20Git/022-azure-resources-created.png)
@@ -60,43 +58,41 @@ Cyber Home Lab Catch Attackers! Free, Easy, and REAL (Microsoft Sentinel 2025).
    to expose the VM as a honeypot.  
 
 
-4. Logged into the Windows VM and disabled Windows Firewall.  
+4. Disabled Windows Firewall on the dedicated honeypot VM to generate test events. This configuration is specific to the controlled lab and is not suitable for production hosts.  
 
 
 5. Generated failed login attempts using incorrect credentials to create
    security events.  
 
-📸 **Screenshot:** Failed Login Attempts  
+**Screenshot:** Failed Login Attempts  
 
 ![Failed Login Attempts](Project%20Git/05-failed-login-attempts.png)
 
 6. Verified failed login events (Event ID 4625) using Windows Event Viewer.  
 
-📸 **Screenshot:** Event Viewer – Event ID 4625  
-
-![Event Viewer 4625](Project%20Git/06-event-viewer-4625.png)
+The failed-login screenshot above also records the test events; the separate copy was removed.
 
 7. Created a Log Analytics Workspace to act as a central log repository.  
 
-📸 **Screenshot:** Log Analytics Workspace  
+**Screenshot:** Log Analytics Workspace  
 
 ![Log Analytics Workspace](Project%20Git/07-log-analytics-workspace.png)
 
 8. Added Microsoft Sentinel and connected it to the Log Analytics Workspace.  
 
-📸 **Screenshot:** Microsoft Sentinel Connected  
+**Screenshot:** Microsoft Sentinel Connected  
 
 ![Microsoft Sentinel Connected](Project%20Git/08-microsoft-sentinel-connected.png)
 
 9. Enabled the “Windows Security Events via AMA” data connector.  
 
-📸 **Screenshot:** Windows Security Events via AMA  
+**Screenshot:** Windows Security Events via AMA  
 
 ![Windows Security Events via AMA](Project%20Git/09-ama-data-connector.png)
 
 10. Created a Data Collection Rule (DCR) to collect Windows security logs.  
 
-📸 **Screenshot:** Data Collection Rule  
+**Screenshot:** Data Collection Rule  
 
 ![Data Collection Rule](Project%20Git/10-data-collection-rule.png)
 
@@ -107,7 +103,7 @@ Cyber Home Lab Catch Attackers! Free, Easy, and REAL (Microsoft Sentinel 2025).
 
 12. Queried logs in Log Analytics Workspace and Sentinel using KQL.  
 
-📸 **Screenshot:** KQL SecurityEvent Query  
+**Screenshot:** KQL SecurityEvent Query  
 
 ![KQL SecurityEvent Query](Project%20Git/12-kql-securityevent-query.png)
 
@@ -122,7 +118,7 @@ Cyber Home Lab Catch Attackers! Free, Easy, and REAL (Microsoft Sentinel 2025).
     - Search key: network  
     - Rows: ~54,000  
 
-📸 **Screenshot:** GeoIP Watchlist Imported  
+**Screenshot:** GeoIP Watchlist Imported  
 
 ![GeoIP Watchlist](Project%20Git/14-geoip-watchlist.png)
 
@@ -141,7 +137,7 @@ WindowsEvents
 
 
 16. Created a new Microsoft Sentinel Workbook to visualize attack data.  
-📸 **Screenshot:** Sentinel Workbook Creation  
+**Screenshot:** Sentinel Workbook Creation  
 ![Sentinel Workbook](Project%20Git/16-sentinel-workbook-created.png)
 
 17. Removed default templates and added a custom query-based visualization
@@ -151,26 +147,26 @@ WindowsEvents
 18. Configured a map visualization to display live global attack data
     based on enriched geolocation information.  
 
-📸 **Screenshot:** Live Attack Map  
+**Screenshot:** Live Attack Map  
 
 ![Live Attack Map](Project%20Git/18-live-attack-map.png)
 
 19. Successfully visualized real-time failed login attempts on a global map,
     demonstrating live threat activity against the honeypot VM.  
 
-📸 **Screenshot:** Final Attack Map Result  
+**Screenshot:** Final Attack Map Result  
 
 ![Final Attack Map](Project%20Git/19-final-attack-map.png)
 
 
-#  GeoIP CSV file
------------------
+## GeoIP watchlist source
+
 ```
 https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/misc/geoip-summarized.csv 
 ```
 
-# WorkBook Query
------------------
+## Workbook configuration
+
 ```
 {
 	"type": 3,
@@ -208,8 +204,8 @@ https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/mai
 ```
 
 
-# LEARNING OUTCOMES
------------------
+## Skills practised
+
 - Understanding SIEM and SOC architecture
 - Windows security log analysis
 - Log ingestion using Azure Monitor Agent
@@ -220,19 +216,19 @@ https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/mai
 - Cloud-based security monitoring
 
 
-# CREDITS & REFERENCES
---------------------
+## References and credits
+
 - Josh Madakor – Cyber Home Lab Series
 - Microsoft Sentinel Documentation
 - Microsoft Azure Documentation
 - GeoIP Watchlist (Josh Madakor GitHub)
 
 
-# AUTHOR
-------
+## Author
+
 Purushottam (Ashish) Lamichhane
 
 IT Support Professional | CCNA Certified | Hands-on Cybersecurity Labs
 
-Hands-on SOC & Cloud Security Labs
+Project focus: Azure logging, Sentinel detection and security-event visualisation
 
