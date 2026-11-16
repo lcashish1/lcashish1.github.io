@@ -1,34 +1,54 @@
 # Purushottam Lamichhane — IT Portfolio
 
-**Portfolio website:** https://lcashish1.github.io/
+**Live portfolio:** https://lcashish1.github.io/
 
-A professional portfolio covering IT support experience, technical skills, hands-on infrastructure and cybersecurity labs, and automation/web projects.
+Professional IT portfolio highlighting Level 1 support experience, networking, cybersecurity, Microsoft Azure, Windows Server, and Python automation.
 
-## Portfolio projects
+## Browse the projects
 
-| Project | Portfolio case study | Source / demo |
+All six projects are represented **inside this repository**. Employers can start with the dedicated portfolio pages or inspect the local project folders.
+
+| Project | Portfolio page | Files / documentation |
 | --- | --- | --- |
-| Zero Trust Azure Security & Automated Response | [Case study](https://lcashish1.github.io/projects/zero-trust-azure.html) | [Technical documentation](https://github.com/lcashish1/purushottam-lamichhane/tree/main/Zero%20Trust%20Azure%20Security%20with%20Live%20Threat%20Detection%20%26%20Automated%20Response) |
-| Microsoft Sentinel Attack Map | [Case study](https://lcashish1.github.io/projects/sentinel-attack-map.html) | [Technical documentation](https://github.com/lcashish1/purushottam-lamichhane/tree/main/Microsoft-Sentinel-Attack-Map-Lab) |
-| Windows Server & Active Directory | [Case study](https://lcashish1.github.io/projects/active-directory.html) | [Technical documentation](https://github.com/lcashish1/purushottam-lamichhane/tree/main/Active%20Directory%20Lab) |
-| Office Network Design & Redundancy | [Case study](https://lcashish1.github.io/projects/office-network.html) | [Technical documentation](https://github.com/lcashish1/purushottam-lamichhane/tree/main/Home%20Network%20Setup) |
-| Alert Nepal — AI News Automation | [Case study](https://lcashish1.github.io/projects/alert-nepal.html) | Personal local project (not publicly hosted) |
-| Interactive CCNA Quiz | [Case study](https://lcashish1.github.io/projects/ccna-quiz.html) | [Live demo](https://lcashish1.github.io/CCNA%20Quiz/) |
+| Zero Trust Azure Security & Automated Response | [Case study](https://lcashish1.github.io/projects/zero-trust-azure.html) | [Full project folder](projects/zero-trust-azure/) |
+| Microsoft Sentinel Attack Map | [Case study](https://lcashish1.github.io/projects/sentinel-attack-map.html) | [Full project folder](projects/sentinel-attack-map/) |
+| Windows Server & Active Directory | [Case study](https://lcashish1.github.io/projects/active-directory.html) | [Full project folder](projects/active-directory/) |
+| Office Network Design & Redundancy | [Case study](https://lcashish1.github.io/projects/office-network.html) | [Full project folder](projects/office-network/) |
+| Alert Nepal — AI News Automation | [Case study](https://lcashish1.github.io/projects/alert-nepal.html) | [Documentation and original illustrations](projects/alert-nepal/) |
+| Interactive CCNA Quiz | [Case study](https://lcashish1.github.io/projects/ccna-quiz.html) | [Project files](CCNA%20Quiz/) · [Live quiz](https://lcashish1.github.io/CCNA%20Quiz/) |
 
-## Structure
+## Repository structure
 
-- `index.html` — main portfolio landing page
-- `assets/portfolio.css` — responsive styling
-- `assets/portfolio.js` — project category filtering
-- `projects/` — individual employer-facing case studies
-- `CCNA Quiz/` — original quiz app; preserved unchanged
-- `old/` — existing legacy content; preserved unchanged
+```text
+lcashish1.github.io/
+├── index.html                     # Professional homepage
+├── assets/                        # Portfolio CSS and JavaScript
+├── projects/
+│   ├── active-directory/          # Migrated lab + screenshots (15 files)
+│   ├── office-network/            # Migrated Cisco lab, .pkt + .xlsx (5 files)
+│   ├── sentinel-attack-map/       # Migrated Sentinel project (18 files)
+│   ├── zero-trust-azure/          # Migrated Azure project (18 files)
+│   ├── alert-nepal/               # Docs, operational notes, SVG graphics
+│   └── *.html                     # Employer-facing portfolio case studies
+├── CCNA Quiz/                     # Existing HTML/CSS/JS quiz
+├── old/                           # Previously existing legacy files (unchanged)
+└── .github/workflows/
+    └── import-technical-projects.yml
+```
 
-The in-depth infrastructure and security lab files remain in the [original technical repository](https://github.com/lcashish1/purushottam-lamichhane) to preserve their history and existing links. The portfolio website is the recommended link to share with employers.
+### Technical projects migration
 
-## GitHub Pages
+The four technical lab folders were copied from [the original repository](https://github.com/lcashish1/purushottam-lamichhane) into this website repository using a GitHub Actions workflow. The first transfer completed successfully and all **56 binary/text files matched the originals by Git blob SHA**.
 
-This is the special GitHub Pages user repository `lcashish1/lcashish1.github.io`. Publish from **Settings → Pages → Deploy from a branch → main → /(root)** if Pages is not already enabled.
+The source repository was intentionally **left intact** as a rollback archive and to preserve historical links and commits. Updated documentation in this repository may contain minor wording and broken-image fixes.
+
+### Alert Nepal limitations
+
+The [Alert Nepal folder](projects/alert-nepal/) provides genuine architecture and operation descriptions along with **illustrative SVG graphics**. The actual private Python application, API tokens and production database are **not** included. Real Facebook photos were not imported because their source images could not be reliably accessed from the provided public Page URL.
+
+## Local development
+
+This is a static GitHub Pages website: open `index.html` in a browser or serve the folder with any static HTTP server. GitHub Pages publishes from the `main` branch, root folder.
 
 ## Contact
 
