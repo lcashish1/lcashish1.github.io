@@ -1,86 +1,60 @@
-# Alert Nepal — Nepali Political News Automation
+# Alert Nepal — Political News Automation
 
-![Alert Nepal official project logo](assets/cover.webp)
+![Alert Nepal logo](assets/cover.webp)
 
-**Project type:** Personal Python automation and social publishing project (2026)  
-**Status:** Local Windows 11 implementation; live Facebook Page publishing has been tested successfully  
-**Facebook Page:** https://www.facebook.com/people/Alert-Nepal/61595921800739/
+**Project:** Python automation · Windows 11 · 2026  
+**Facebook Page:** [Alert Nepal](https://www.facebook.com/people/Alert-Nepal/61595921800739/)
 
 ## Overview
 
-Alert Nepal is a locally operated, Python-based news processing and Facebook Page publishing workflow. It was created to reduce repetitive steps involved in monitoring Nepali political news, selecting a relevant story, preparing a Nepali-language image card, and publishing it to a Facebook Page.
+I built Alert Nepal to simplify preparing Nepali-language political news for a Facebook Page. The application reads RSS feeds, selects relevant stories, prepares a short summary and image card, then manages the publishing process.
 
-The system focuses on **one leading story at a time**, especially stories relating to **Balen Shah or Nepal's prime minister**. It uses controlled RSS sources, AI-assisted content preparation, database-backed tracking, and a graphical review interface.
+The selection filter can focus on stories mentioning Balen Shah or Nepal's prime minister. The system was designed to handle one leading story at a time instead of producing a high volume of posts.
 
-> **Project documentation, not source-code upload:** The working agent remains on a local Windows 11 machine. This public folder documents the solution without pretending to contain the private local source code, Meta tokens, Gemini credentials, databases, or copyrighted news images.
+## Technology
 
-## Architecture
+| Technology | Use |
+| --- | --- |
+| Python and RSS | Collect and filter stories from Onlinekhabar and Setopati |
+| Gemini API | Support relevance scoring and Nepali drafting |
+| SQLite | Store articles, drafts, queues and publishing outcomes |
+| Streamlit | Local review and status interface |
+| Meta Graph API | Publish image cards to the Facebook Page |
+| Windows Task Scheduler | Run scheduled preparation and publishing tasks |
 
-![Alert Nepal architecture — illustrative diagram](assets/architecture.svg)
+## Processing flow
 
-### Main components
+![System architecture](assets/architecture.svg)
 
-| Component | Role |
-|---|---|
-| RSS feeds | Collect candidate news stories from Onlinekhabar and Setopati |
-| Python ingestion | Read articles, filter relevant politics candidates and prevent duplicates |
-| Gemini API | Assist with content relevance and Nepali-language drafting |
-| SQLite | Store articles, drafts, publishing queue, state and publication history |
-| Streamlit | Run a local interface for reviewing cards and publishing status |
-| Image-card renderer | Prepare visually branded Nepali-language news cards |
-| Meta Graph API | Publish approved or automatically queued content to the Facebook Page |
-| Windows Task Scheduler | Schedule the preparation and publication scripts |
-| Reconciliation workflow | Prevent uncertain or failed publishing attempts from being blindly reposted |
+1. Read articles from the configured feeds and filter political news.
+2. Rank the candidates, select one story and prepare the Nepali text.
+3. Render a branded image card and caption with a source link.
+4. Save the draft and publishing state in SQLite.
+5. Publish after approval or through an explicitly configured automatic queue.
+6. Record the post ID or flag an uncertain result for reconciliation before retrying.
 
-## Workflow
+The local database tracks article history and outstanding publication attempts to limit duplicates.
 
-1. Collect articles from configured Nepal news RSS sources.
-2. Filter and rank politics stories using a configurable focus such as `balen_or_pm`.
-3. Select a leading candidate and prepare an original Nepali-language summary.
-4. Generate a branded image card and descriptive Facebook caption with source attribution.
-5. Record the item, review state and deduplication key in SQLite.
-6. Run either human approval or explicitly configured automatic queueing.
-7. Attempt the Page publication using Meta's API.
-8. Record success or an unresolved state. Reconcile ambiguous API outcomes before any retry.
+## Testing and current status
 
-## Screens and visuals
+I connected the application to the Alert Nepal Facebook Page and successfully published an approved post. Scheduling through Windows Task Scheduler was also configured and tested, although unattended runs have needed further troubleshooting.
 
-The logo above was supplied by the project owner. The architecture and news-card illustrations below are **design examples**, not screenshots of a live Facebook post or the running Streamlit interface.
+The working application runs on my Windows computer. This public repository contains the architecture, operational notes and project graphics. I have not published the application code, tokens or local database.
 
-![Illustrative news card](assets/card-preview.svg)
+## Technical notes
 
-A live page link is provided above; the Facebook post images were not mirrored because the page's public photo feed was not accessible during portfolio preparation.
+- [Architecture](docs/ARCHITECTURE.md)
+- [Operations and troubleshooting](docs/OPERATIONS.md)
+- [Media and attribution](docs/MEDIA.md)
 
-## Operations
-
-The original implementation uses files including `scheduled_prepare.py` and `auto_publish.py`. Read-only status commands used during testing:
+Two non-publishing status checks used during testing:
 
 ```powershell
 .\.venv\Scripts\python.exe scheduled_prepare.py --check
 .\.venv\Scripts\python.exe auto_publish.py --check
 ```
 
-See [operations notes](docs/OPERATIONS.md) and the [architecture overview](docs/ARCHITECTURE.md).
+**Next steps:** improve scheduler reliability, source verification and publishing error notifications.
 
-## Safety and publishing controls
-
-- API tokens, Page tokens, environment files and the live SQLite database stay outside public GitHub.
-- Source URLs and image credits should be retained with posts.
-- Published IDs and unresolved attempts are tracked to reduce duplicate posting.
-- AI-generated or AI-edited illustrations should not be presented as real photographs of political events.
-- Automatic posting should use clear rules and review sensitive or uncertain reporting.
-- Automated scheduling has required troubleshooting; the project does not claim perfect unattended reliability.
-
-## Skills demonstrated
-
-Python · RSS · Gemini API integration · SQLite · Streamlit · GitHub · Meta Graph API · Windows Task Scheduler · Workflow state management · API troubleshooting · Content operations
-
-## Potential improvements
-
-- A robust scheduling monitor with clear error notifications
-- Automated image licensing and source-credit checks
-- Quality scoring and fact checking before unattended publication
-- Packaging a redacted, reproducible source-code demonstration
-
-**Created by:** Purushottam Lamichhane  
-**Portfolio:** https://lcashish1.github.io/projects/alert-nepal.html
+**Author:** Purushottam Lamichhane  
+**Portfolio:** [Alert Nepal case study](https://lcashish1.github.io/projects/alert-nepal.html)

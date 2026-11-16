@@ -4,9 +4,8 @@ This project folder contains the project-owner-provided Alert Nepal logo and ori
 
 - [Official Alert Nepal logo](../assets/cover.webp) · [SVG compatibility version](../assets/cover.svg)
 - [Workflow diagram](../assets/architecture.svg)
-- [Illustrative news card](../assets/card-preview.svg)
 
-The logo is provided as project branding; the workflow diagram and card mockup are illustrative, **not evidence of a specific published news post**.
+The logo is project branding. The architecture diagram explains the system; it is not a screenshot of a published post.
 
 The public [Alert Nepal Facebook Page](https://www.facebook.com/people/Alert-Nepal/61595921800739/) remains the reference for actual published posts. When adding screenshots from the Page in the future:
 
