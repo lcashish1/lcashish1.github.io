@@ -46,7 +46,7 @@ NSGs restrict inbound access and provide the network-layer response when Sentine
 
 The Log Analytics Workspace, `ZT-Sentinel-LAW`, centralises the logs used for detection. Microsoft Sentinel monitors the workspace, with Linux Syslog and relevant Azure security logs included in the monitoring design.
 
-![Sentinel workspace](Project%20git/sentinal.png)
+![Sentinel workspace](Project%20git/sentinel.png)
 
 ![Log Analytics](Project%20git/logs-and-workplace.png)
 
@@ -83,9 +83,9 @@ The rule looks for more than five invalid-user attempts from the same remote IP 
 
 The Logic Apps playbook is triggered by a Sentinel incident. The documented flow retrieves incident details, extracts IP entities and creates a deny rule in an NSG to restrict further traffic from the detected source.
 
-![Response workflow](Project%20git/dectection-rule4.png)
+![Response workflow](Project%20git/detection-rule4.png)
 
-![Response rule](Project%20git/Dectection-rule5.png)
+![Response rule](Project%20git/detection-rule5.png)
 
 The simulated login attempts correspond to MITRE ATT&CK **T1110 (Brute Force)**. The lab focuses on this scenario, rather than a complete production SOC deployment.
 
