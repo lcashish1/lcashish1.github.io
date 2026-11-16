@@ -2,8 +2,8 @@
 
 ## 👋 Author
 **Purushottam Lamichhane**  
-🎓 *CCNA Certified | Bachelor of Information Technology Student*  
-💼 *Assistant Restaurant Manager @ KFC | Transitioning into IT*  
+🎓 *CCNA Certified | Bachelor of Information Technology Graduate*  
+💼 *Level 1 IT Support | Restaurant Technology*  
 📧 Email: [lcashish1@gmail.com](mailto:lcashish1@gmail.com)  
 🔗 [LinkedIn](https://www.linkedin.com/in/lcashish1/)
 
