@@ -1,6 +1,6 @@
 # Alert Nepal — Nepali Political News Automation
 
-![Alert Nepal visual identity concept](assets/cover.svg)
+![Alert Nepal official project logo](assets/cover.webp)
 
 **Project type:** Personal Python automation and social publishing project (2026)  
 **Status:** Local Windows 11 implementation; live Facebook Page publishing has been tested successfully  
@@ -45,7 +45,7 @@ The system focuses on **one leading story at a time**, especially stories relati
 
 ## Screens and visuals
 
-The illustrations below are **design/architecture diagrams**, not screenshots of a live Facebook post or the running Streamlit interface.
+The logo above was supplied by the project owner. The architecture and news-card illustrations below are **design examples**, not screenshots of a live Facebook post or the running Streamlit interface.
 
 ![Illustrative news card](assets/card-preview.svg)
 

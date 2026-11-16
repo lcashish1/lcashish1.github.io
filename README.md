@@ -14,7 +14,7 @@ All six projects are represented **inside this repository**. Employers can start
 | Microsoft Sentinel Attack Map | [Case study](https://lcashish1.github.io/projects/sentinel-attack-map.html) | [Full project folder](projects/sentinel-attack-map/) |
 | Windows Server & Active Directory | [Case study](https://lcashish1.github.io/projects/active-directory.html) | [Full project folder](projects/active-directory/) |
 | Office Network Design & Redundancy | [Case study](https://lcashish1.github.io/projects/office-network.html) | [Full project folder](projects/office-network/) |
-| Alert Nepal — AI News Automation | [Case study](https://lcashish1.github.io/projects/alert-nepal.html) | [Documentation and original illustrations](projects/alert-nepal/) |
+| Alert Nepal — AI News Automation | [Case study](https://lcashish1.github.io/projects/alert-nepal.html) | [Documentation, project logo and diagrams](projects/alert-nepal/) |
 | Interactive CCNA Quiz | [Case study](https://lcashish1.github.io/projects/ccna-quiz.html) | [Project files](CCNA%20Quiz/) · [Live quiz](https://lcashish1.github.io/CCNA%20Quiz/) |
 
 ## Repository structure
@@ -28,7 +28,7 @@ lcashish1.github.io/
 │   ├── office-network/            # Migrated Cisco lab, .pkt + .xlsx (5 files)
 │   ├── sentinel-attack-map/       # Migrated Sentinel project (18 files)
 │   ├── zero-trust-azure/          # Migrated Azure project (18 files)
-│   ├── alert-nepal/               # Docs, operational notes, SVG graphics
+│   ├── alert-nepal/               # Docs, owner-provided logo, diagrams
 │   └── *.html                     # Employer-facing portfolio case studies
 ├── CCNA Quiz/                     # Existing HTML/CSS/JS quiz
 ├── old/                           # Previously existing legacy files (unchanged)
@@ -44,7 +44,7 @@ The source repository was intentionally **left intact** as a rollback archive an
 
 ### Alert Nepal limitations
 
-The [Alert Nepal folder](projects/alert-nepal/) provides genuine architecture and operation descriptions along with **illustrative SVG graphics**. The actual private Python application, API tokens and production database are **not** included. Real Facebook photos were not imported because their source images could not be reliably accessed from the provided public Page URL.
+The [Alert Nepal folder](projects/alert-nepal/) provides genuine architecture and operation descriptions along with the **project-owner-provided logo and illustrative SVG diagrams**. The actual private Python application, API tokens and production database are **not** included. Real Facebook photos were not imported because their source images could not be reliably accessed from the provided public Page URL.
 
 ## Local development
 
