@@ -232,7 +232,7 @@ https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/mai
 ------
 Purushottam (Ashish) Lamichhane
 
-CCNA Certified | Aspiring Cybersecurity Analyst
+IT Support Professional | CCNA Certified | Hands-on Cybersecurity Labs
 
 Hands-on SOC & Cloud Security Labs
 
